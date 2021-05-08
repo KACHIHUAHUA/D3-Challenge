@@ -39,7 +39,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
     // Step 2: Create scale functions
     // ==============================
     let xLinearScale = d3.scaleLinear()
-      .domain([20, d3.max(data, d => d.poverty)])
+      .domain([d3.min(data, d => d.poverty), d3.max(data, d => d.poverty)])
       .range([0, width]);
 
     let yLinearScale = d3.scaleLinear()
@@ -64,7 +64,11 @@ d3.csv("assets/data/data.csv").then(function(data) {
     // ==============================
     let circlesGroup = chartGroup.selectAll("circle")
     .data(data)
-    .enter()
+    .enter();
+
+
+
+    circlesGroup
     .append("circle")
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
@@ -109,6 +113,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("In Poverty (%)");
+
   }).catch(function(error) {
     console.log(error);
   });
