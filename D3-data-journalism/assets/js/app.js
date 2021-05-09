@@ -106,18 +106,18 @@ d3.csv("assets/data/data.csv").then(function(data) {
         toolTip.hide(data);
       });
 
-    //Create axes labels
+    //Step 9: Create axes labels
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 10)
-      .attr("x", 0 - (height / 1.5))
+      .attr("x", 0 - (height / 2))
       .attr("dy", "1em")
-      .attr("class", "axisText")
+      .attr("class", "aText")
       .text("Lacks Healthcare (%)");
 
     chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 5})`)
-      .attr("class", "axisText")
+      .attr("class", "aText")
       .text("In Poverty (%)");
     
   }).catch(function(error) {
