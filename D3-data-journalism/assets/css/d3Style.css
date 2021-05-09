@@ -19,7 +19,7 @@
 }
 
 .inactive:hover {
-  fill: #000;
+  fill: rgb(255, 252, 252);
   cursor: pointer;
 }
 
